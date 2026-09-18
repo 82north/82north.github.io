@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>82 NORTH</title>
+    <meta name="description" content="82 NORTH — Predict. Navigate. Operate. Intelligence for extreme environments.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="wordmark" href="#top">82<span class="brand-gap"></span>NORTH</a>
+        <nav class="site-nav" aria-label="Sections">
+            <a href="#approach">Approach</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#fram">Fram</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a class="cta-text" href="mailto:team@82north.io">Work with us</a>
+    </header>
+
+    <main id="top">
+        <section class="hero" aria-label="82 NORTH">
+            <div class="hero-media" aria-hidden="true">
+                <img src="sea-ice.jpg" alt="">
+                <div class="hero-grid"></div>
+                <div class="hero-shade"></div>
+            </div>
+            <div class="hero-copy">
+                <h1>82<span class="brand-gap"></span>NORTH</h1>
+                <p class="tagline">Predict. Navigate. Operate.</p>
+                <p class="lede">Intelligence for extreme environments.</p>
+                <p class="support">We combine remote sensing, earth system models and AI to operationalise ice intelligence for maritime navigation.</p>
+                <a class="cta" href="mailto:team@82north.io">Work with us</a>
+            </div>
+            <div class="hero-meta" aria-hidden="true">
+                <span>Sea ice · Polar operations</span>
+                <span>Remote sensing · Models · AI</span>
+            </div>
+        </section>
+
+        <section id="approach" class="section reveal">
+            <div class="section-grid">
+                <p class="label"><span class="index">01</span>Approach</p>
+                <div class="measure">
+                    <h2>Decisions in extreme environments are decisions under uncertainty.</h2>
+                    <p>Observations are incomplete. Models disagree. Conditions continuously evolve. 82 NORTH combines these imperfect sources into probabilistic, decision-relevant risk intelligence.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="capabilities" class="section reveal">
+            <div class="section-grid">
+                <p class="label"><span class="index">02</span>Capabilities</p>
+                <div class="capabilities">
+                    <article>
+                        <h2>Predict</h2>
+                        <p>Forecast changing environmental conditions from observations, models and AI.</p>
+                    </article>
+                    <article>
+                        <h2>Navigate</h2>
+                        <p>Translate uncertainty into route- and mission-relevant intelligence.</p>
+                    </article>
+                    <article>
+                        <h2>Operate</h2>
+                        <p>Enable better decisions in remote and difficult environments.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="fram" class="section section-fram reveal">
+            <div class="section-grid">
+                <p class="label"><span class="index">03</span>Fram</p>
+                <div class="fram-body">
+                    <div class="measure">
+                        <h2>One risk layer. Three horizons.</h2>
+                        <p>What is possible depends on the vessel, the ice, and the window. Fram quantifies ice risk for a given vessel class across operational, seasonal and retrospective timescales.</p>
+                    </div>
+
+                    <div class="horizons">
+                        <article class="horizon">
+                            <p class="horizon-scale">Hours to days</p>
+                            <h3>Nowcast</h3>
+                            <p>Ice risk for vessels underway. Current conditions, near-term change, and the routes that remain open for a given ice class.</p>
+                        </article>
+                        <article class="horizon">
+                            <p class="horizon-scale">Weeks to months</p>
+                            <h3>Seasonal</h3>
+                            <p>Outlooks of ice conditions and access windows, with uncertainty, to support scheduling, chartering and mission planning.</p>
+                        </article>
+                        <article class="horizon">
+                            <p class="horizon-scale">Past seasons</p>
+                            <h3>Hindcast</h3>
+                            <p>Retrospective assessment of routes and decisions. What the ice did, what alternatives existed, and the fuel, cost and risk implications.</p>
+                        </article>
+                    </div>
+
+                    <p class="product-mark">Fram — The 82 NORTH risk layer.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-contact reveal">
+            <div class="contact-media" aria-hidden="true">
+                <img src="sea-ice.jpg" alt="">
+                <div class="contact-shade"></div>
+            </div>
+            <div class="section-grid">
+                <p class="label"><span class="index">04</span>Contact</p>
+                <div class="measure">
+                    <h2>Operate with better intelligence.</h2>
+                    <p>We're speaking with maritime operators, technology developers and organisations working in polar and other extreme environments.</p>
+                    <a class="cta" href="mailto:team@82north.io">Work with us</a>
+                    <p class="contact-email"><a href="mailto:team@82north.io">team@82north.io</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span>82 NORTH</span>
+        <span>Intelligence for extreme environments</span>
+        <span>&copy; 2026 Earth 2 You LLC</span>
+    </footer>
+
+    <script>
+        (function () {
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var items = document.querySelectorAll('.reveal');
+            if (reduce || !('IntersectionObserver' in window)) {
+                items.forEach(function (el) { el.classList.add('is-visible'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('is-visible');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -12% 0px' });
+            items.forEach(function (el) { io.observe(el); });
+        })();
+    </script>
+</body>
+</html>

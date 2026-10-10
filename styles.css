@@ -167,8 +167,32 @@ p {
         linear-gradient(rgba(236, 232, 225, 0.11) 1px, transparent 1px),
         linear-gradient(90deg, rgba(236, 232, 225, 0.11) 1px, transparent 1px);
     background-size: 5.5rem 5.5rem;
+    background-position: center;
     mask-image: radial-gradient(ellipse at 72% 38%, #000 25%, transparent 85%);
     -webkit-mask-image: radial-gradient(ellipse at 72% 38%, #000 25%, transparent 85%);
+}
+
+.hero-grid::before,
+.hero-grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.hero-grid::before {
+    background-image:
+        linear-gradient(rgba(236, 232, 225, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(236, 232, 225, 0.045) 1px, transparent 1px);
+    background-size: 1.375rem 1.375rem;
+    background-position: center;
+}
+
+.hero-grid::after {
+    inset: 0 0 auto;
+    height: 16%;
+    background: linear-gradient(180deg, transparent 0%, rgba(236, 232, 225, 0.06) 82%, rgba(236, 232, 225, 0.26) 99%, transparent 100%);
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 .hero-shade {
@@ -516,6 +540,16 @@ p {
     @keyframes drift {
         from { transform: scale(1); }
         to { transform: scale(1.05); }
+    }
+
+    .hero-grid::after {
+        opacity: 1;
+        animation: grid-scan 11s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+
+    @keyframes grid-scan {
+        0% { transform: translateY(-100%); }
+        70%, 100% { transform: translateY(650%); }
     }
 }
 

@@ -492,6 +492,11 @@ p {
     color: var(--dim);
 }
 
+#season-map .leaflet-top.leaflet-right {
+    top: 0.7rem;
+    right: 0.7rem;
+}
+
 #season-map .leaflet-bar {
     border: 1px solid var(--line);
     box-shadow: none;
@@ -501,6 +506,14 @@ p {
     background: rgba(8, 9, 10, 0.8);
     color: var(--text);
     border-bottom-color: var(--line);
+    width: 1.6rem;
+    height: 1.6rem;
+    line-height: 1.5rem;
+}
+
+#season-map .leaflet-bar a.leaflet-disabled {
+    background: rgba(8, 9, 10, 0.55);
+    color: var(--dim);
 }
 
 /* Contact */

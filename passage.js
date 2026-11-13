@@ -20,6 +20,8 @@
         zoomSnap: 1
     });
 
+    L.control.zoom({ position: "topright" }).addTo(map);
+
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
         attribution: "Esri, Garmin, USGS",
         maxZoom: 16,
@@ -64,6 +66,25 @@
         ship.offset = (ship.name.length * 370) % 2100;
     }
 
+    function inFrame(lat, lon) {
+        return lat >= 69.5 && lat <= 77 && lon >= -112 && lon <= -78;
+    }
+
+    function entryU(ship) {
+        var walked = 0;
+        for (var i = 0; i < ship.seg.length; i++) {
+            var a = ship.line[i];
+            var b = ship.line[i + 1];
+            if (!inFrame(b[0], b[1])) {
+                walked += ship.seg[i];
+                continue;
+            }
+            if (inFrame(a[0], a[1])) return walked / ship.total;
+            return (walked + ship.seg[i]) / ship.total;
+        }
+        return 0;
+    }
+
     function along(ship, u) {
         var target = Math.max(0, Math.min(1, u)) * ship.total;
         var walked = 0;
@@ -94,7 +115,7 @@
         var u = reduce ? 0.42 : ((performance.now() % loopMs) / loopMs);
         var fade = 1;
         if (!reduce) {
-            if (u < 0.05) fade = u / 0.05;
+            if (u < 0.02) fade = u / 0.02;
             else if (u > 0.93) fade = (1 - u) / 0.07;
         }
         return { when: span.start + u * (span.end - span.start), fade: fade };
@@ -197,8 +218,11 @@
         .then(function (season) {
             ships = season.ships.filter(function (ship) { return ship.passage === "nwp"; });
             ships.forEach(prepare);
-            span.start = ships.reduce(function (min, ship) { return Math.min(min, ship.t0); }, ships[0].t0) - 4 * 86400000;
-            span.end = ships.reduce(function (max, ship) { return Math.max(max, ship.t1); }, ships[0].t1) + 3 * 86400000;
+            var first = ships.reduce(function (min, ship) {
+                return Math.min(min, ship.t0 + entryU(ship) * (ship.t1 - ship.t0));
+            }, Infinity);
+            span.start = first - 1.5 * 86400000;
+            span.end = ships.reduce(function (max, ship) { return Math.max(max, ship.t1); }, ships[0].t1) + 2 * 86400000;
             requestAnimationFrame(frame);
         });
 })();

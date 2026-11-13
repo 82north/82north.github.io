@@ -16,7 +16,7 @@
         scrollWheelZoom: false,
         worldCopyJump: false,
         minZoom: 2,
-        maxZoom: 6,
+        maxZoom: 8,
         zoomSnap: 1
     });
 
@@ -31,7 +31,7 @@
     function frameArchipelago() {
         var narrow = window.innerWidth < 760;
         if (narrow) {
-            map.setView([73.2, -95], 4, { animate: false });
+            map.setView([73.2, -95], 6, { animate: false });
             return;
         }
         map.fitBounds([[69.7, -110], [76.7, -80]], {
@@ -40,6 +40,7 @@
             animate: false,
             maxZoom: 5
         });
+        map.setZoom(Math.min(map.getMaxZoom(), map.getZoom() + 2), { animate: false });
     }
 
     function dayMs(iso) {

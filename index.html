@@ -7,6 +7,7 @@
     <meta name="description" content="82 NORTH — Predict. Assess. Operate. Operational intelligence for Earth's most uncertain environments, built on remote sensing, physical models and AI.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
     <header class="site-header">
@@ -96,6 +97,20 @@
                     <p class="product-mark">Fram — the first of many 82 NORTH layers.</p>
                 </div>
             </div>
+
+            <div class="season">
+                <div class="season-stage">
+                    <div id="season-map"></div>
+                    <canvas id="season-flash" aria-hidden="true"></canvas>
+                    <div class="season-hud">
+                        <p class="season-kicker">Canadian Arctic</p>
+                    </div>
+                </div>
+                <p class="season-credit">
+                    Northwest Passage transits through the Canadian Arctic. The flash is a ship. The trail is the route just sailed, not the track the hull sailed. Taken from real voyage logs, shown without names or dates. Full transits only. Not for navigation.
+                    From <a href="https://thenorthwestpassage.info/resources">R. K. Headland and colleagues, Scott Polar Research Institute, University of Cambridge</a>.
+                </p>
+            </div>
         </section>
 
         <section id="nansen" class="section reveal">
@@ -132,6 +147,8 @@
         <span>&copy; 2026 82 NORTH</span>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="passage.js"></script>
     <script>
         (function () {
             var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

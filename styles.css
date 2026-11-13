@@ -401,6 +401,107 @@ p {
     color: var(--dim);
 }
 
+/* Season map */
+
+.season {
+    margin: clamp(4rem, 8vw, 6rem) calc(var(--gutter) * -1) 0;
+}
+
+.season-stage {
+    position: relative;
+    height: clamp(24rem, 62vh, 40rem);
+    background: var(--bg);
+    overflow: hidden;
+}
+
+#season-map {
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+}
+
+#season-map .leaflet-tile-pane {
+    filter: grayscale(1) contrast(1.35) brightness(1.9);
+}
+
+#season-flash {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 400;
+}
+
+.season-stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 450;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at center, transparent 62%, rgba(8, 9, 10, 0.28) 100%);
+}
+
+.season-hud {
+    position: absolute;
+    z-index: 500;
+    top: 5.1rem;
+    left: var(--gutter);
+    pointer-events: none;
+}
+
+.season-kicker {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.season-credit {
+    position: relative;
+    z-index: 2;
+    max-width: 46rem;
+    margin: 0;
+    padding: 1rem var(--gutter) 1.4rem;
+    background: var(--bg-2);
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    line-height: 1.55;
+    letter-spacing: 0.04em;
+    color: var(--dim);
+}
+
+.season-credit a {
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+}
+
+#season-map .leaflet-control-attribution {
+    background: transparent;
+    color: var(--dim);
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    max-width: 16rem;
+}
+
+#season-map .leaflet-control-attribution a {
+    color: var(--dim);
+}
+
+#season-map .leaflet-bar {
+    border: 1px solid var(--line);
+    box-shadow: none;
+}
+
+#season-map .leaflet-bar a {
+    background: rgba(8, 9, 10, 0.8);
+    color: var(--text);
+    border-bottom-color: var(--line);
+}
+
 /* Contact */
 
 .section-contact {

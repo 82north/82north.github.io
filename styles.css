@@ -404,7 +404,7 @@ p {
 /* Season map */
 
 .season {
-    margin: clamp(4rem, 8vw, 6rem) calc(var(--gutter) * -1) 0;
+    margin: clamp(3.5rem, 7vw, 5rem) 0 0;
 }
 
 .season-stage {
@@ -414,6 +414,13 @@ p {
     overflow: hidden;
 }
 
+@media (max-width: 760px) {
+    .season-stage {
+        height: auto;
+        aspect-ratio: 8 / 5;
+    }
+}
+
 #season-map {
     position: absolute;
     inset: 0;
@@ -421,7 +428,11 @@ p {
 }
 
 #season-map .leaflet-tile-pane {
-    filter: grayscale(1) contrast(1.35) brightness(1.9);
+    filter: grayscale(1) brightness(1.55);
+}
+
+#season-map .leaflet-tile {
+    image-rendering: auto;
 }
 
 #season-flash {
@@ -446,8 +457,8 @@ p {
 .season-hud {
     position: absolute;
     z-index: 500;
-    top: 5.1rem;
-    left: var(--gutter);
+    top: 1.15rem;
+    left: 1.15rem;
     pointer-events: none;
 }
 
@@ -464,8 +475,8 @@ p {
     z-index: 2;
     max-width: 46rem;
     margin: 0;
-    padding: 1rem var(--gutter) 1.4rem;
-    background: var(--bg-2);
+    padding: 1rem 0 0;
+    background: transparent;
     font-family: var(--mono);
     font-size: 0.66rem;
     line-height: 1.55;

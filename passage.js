@@ -17,21 +17,26 @@
         worldCopyJump: false,
         minZoom: 2,
         maxZoom: 6,
-        zoomSnap: 0.1
+        zoomSnap: 1
     });
 
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
         attribution: "Esri, Garmin, USGS",
-        maxZoom: 16
+        maxZoom: 16,
+        detectRetina: true
     }).addTo(map);
 
     function frameArchipelago() {
         var narrow = window.innerWidth < 760;
+        if (narrow) {
+            map.setView([73.2, -95], 4, { animate: false });
+            return;
+        }
         map.fitBounds([[69.7, -110], [76.7, -80]], {
-            paddingTopLeft: [narrow ? 12 : 24, narrow ? 56 : 64],
-            paddingBottomRight: [narrow ? 12 : 24, 20],
+            paddingTopLeft: [20, 40],
+            paddingBottomRight: [20, 16],
             animate: false,
-            maxZoom: narrow ? 4 : 5
+            maxZoom: 5
         });
     }
 

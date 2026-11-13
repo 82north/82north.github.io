@@ -50,19 +50,33 @@
         <section id="capabilities" class="section reveal">
             <div class="section-grid">
                 <p class="label"><span class="index">02</span>Capabilities</p>
-                <div class="capabilities">
-                    <article>
-                        <h2>Predict</h2>
-                        <p>Reconstruct what happened and forecast what comes next, from past seasons to hours and months ahead, blending satellite observations, physical models and machine learning.</p>
-                    </article>
-                    <article>
-                        <h2>Assess</h2>
-                        <p>Quantify uncertainty instead of hiding it. Know the range of what could happen, and how likely each outcome is. Use hindcasts to sharpen our understanding of past performance and enhance our next prediction.</p>
-                    </article>
-                    <article>
-                        <h2>Operate</h2>
-                        <p>Turn forecasts into decision-ready intelligence that keeps people, vessels and missions safe, delivered as layers and APIs that plug into the systems you already use.</p>
-                    </article>
+                <div class="capabilities-body">
+                    <div class="capabilities">
+                        <article>
+                            <h2>Predict</h2>
+                            <p>Reconstruct what happened and forecast what comes next, from past seasons to hours and months ahead, blending satellite observations, physical models and machine learning.</p>
+                        </article>
+                        <article>
+                            <h2>Assess</h2>
+                            <p>Quantify uncertainty instead of hiding it. Know the range of what could happen, and how likely each outcome is. Use hindcasts to sharpen our understanding of past performance and enhance our next prediction.</p>
+                        </article>
+                        <article>
+                            <h2>Operate</h2>
+                            <p>Turn forecasts into decision-ready intelligence that keeps people, vessels and missions safe, delivered as layers and APIs that plug into the systems you already use.</p>
+                        </article>
+                    </div>
+                    <div class="season">
+                        <div class="season-stage">
+                            <div id="season-map"></div>
+                            <canvas id="season-flash" aria-hidden="true"></canvas>
+                            <div class="season-hud">
+                                <p class="season-kicker">Canadian Arctic</p>
+                            </div>
+                        </div>
+                        <p class="season-credit">
+                            From <a href="https://thenorthwestpassage.info/resources">R. K. Headland and colleagues, Scott Polar Research Institute, University of Cambridge</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -96,20 +110,6 @@
 
                     <p class="product-mark">Fram — the first of many 82 NORTH layers.</p>
                 </div>
-            </div>
-
-            <div class="season">
-                <div class="season-stage">
-                    <div id="season-map"></div>
-                    <canvas id="season-flash" aria-hidden="true"></canvas>
-                    <div class="season-hud">
-                        <p class="season-kicker">Canadian Arctic</p>
-                    </div>
-                </div>
-                <p class="season-credit">
-                    Northwest Passage transits through the Canadian Arctic. The flash is a ship. The trail is the route just sailed, not the track the hull sailed. Taken from real voyage logs, shown without names or dates. Full transits only. Not for navigation.
-                    From <a href="https://thenorthwestpassage.info/resources">R. K. Headland and colleagues, Scott Polar Research Institute, University of Cambridge</a>.
-                </p>
             </div>
         </section>
 

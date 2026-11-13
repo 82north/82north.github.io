@@ -428,7 +428,7 @@ p {
 }
 
 #season-map .leaflet-tile-pane {
-    filter: grayscale(1) brightness(1.55);
+    filter: grayscale(1) brightness(1.7) contrast(2.2);
 }
 
 #season-map .leaflet-tile {
@@ -442,16 +442,6 @@ p {
     height: 100%;
     pointer-events: none;
     z-index: 400;
-}
-
-.season-stage::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 450;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse at center, transparent 62%, rgba(8, 9, 10, 0.28) 100%);
 }
 
 .season-hud {
